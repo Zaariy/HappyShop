@@ -4,16 +4,14 @@ import HeaderPage from "./components/Header.jsx";
 import { BrowserRouter , Routes , Route } from "react-router-dom";
 import ShowProduct from "./components/ShowProduct";
 import Footer from "./components/Footer.jsx";
-import Contact from "./components/Contact";
-import Faq from "./components/Faq";
+import Contact from "./pages/Contact/index.jsx";
+import Faq from "./pages/FAQ/index.jsx";
 import CartPay from "./components/CartPayment";
 
-// import { Route } from "react-router-dom";
 function App() {
 
     return ( 
         <div>
-            
             
             <BrowserRouter >
             <HeaderPage />
