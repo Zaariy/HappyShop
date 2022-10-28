@@ -4,10 +4,12 @@
     min-height: 50vh;
 
 }
-.paymentPage  h2 {
+
+.paymentPage h2 {
     font-size: 18px;
     margin-bottom: 20px;
 }
+
 .paymentPage .content .cart {
     max-width: 500px;
     min-width: 350px;
@@ -15,63 +17,74 @@
     margin-bottom: 10px;
     border: 1px solid gray;
     border-left: none;
-    border-right:  none;
+    border-right: none;
     padding: 20px 0;
     align-items: center;
 
 }
+
 .paymentPage .content .cart input {
     width: 100px;
     margin-left: 25px;
 }
+
 .paymentPage .content .cart img {
     width: 50px;
 }
+
 .paymentPage .content .cart .info {
     margin-left: 10px;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 .paymentPage .content .cart .info p {
     font-weight: 600;
 }
+
 .paymentPage .content .cart .info strong {
     font-weight: 100;
 }
-.paymentPage .allContent  {
+
+.paymentPage .allContent {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
+
 @media (max-width: 767px) {
     .paymentPage .allContent {
         flex-direction: column;
         flex-wrap: wrap;
         align-items: flex-start;
         margin-bottom: 30px;
-    
+
     }
+
     .paymentPage .allContent .content .subtitle {
         margin-bottom: 50px;
     }
 }
+
 .paymentPage .paymentInfo {
     max-width: 500px;
     min-width: 300px;
 }
+
 .paymentPage .paymentInfo .infoShoping {
 
-    border:  1px solid gray;
+    border: 1px solid gray;
     border-left: none;
     border-right: none;
     margin: 10px 0;
     padding: 10px 0;
 }
+
 .paymentPage .paymentInfo .pay button {
 
     background-color: black;
-    padding:  4px 20px;
+    padding: 4px 20px;
     color: white;
     font-size: 14px;
     font-weight: 100;

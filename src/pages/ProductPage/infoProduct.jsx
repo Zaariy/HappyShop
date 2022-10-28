@@ -1,42 +1,50 @@
 import React, { useEffect, useState } from "react"
-import '../CSS/showProduct.css'
+import './style/infoProduct.css';
+import { Product } from '../../data.js';
 import { useLocation } from "react-router";
-import axios from "axios";
-     
-function ShowProduct () {
-    const [data , setData] = useState({data : [] , isReady : false})
-    const idOfProduct = useLocation()
-    
+import {
+    searchProduct,
+    getSourceImgs
+} from '../../utils/PublicFunctionsHealper';
 
-    const searchData =  data.isReady ? data.data.find((item) => item.id === idOfProduct.state.id) : false
+
+/*
+    InfoPR ==> Information About Product Page
+*/
+
+function InfoPR() {
+    const [product, setProduct] = useState({ data: {}, ready: false });
+    const routeInfoProduct = useLocation()
+
     useEffect(() => {
-        // Get Data from api 
-        // /api/data/product 
-        axios.get('/api/data/product')
-        .then((res) => setData({data : res.data , isReady : true}))
+        setProduct((prv) => {
+            return { data: searchProduct(routeInfoProduct.state?.id, Product), ready: true }
+        })
 
-    } , [])
+        return () => {
+            setProduct({ data: {}, ready: false })
+        }
+    }, [product.ready, routeInfoProduct.state?.id])
 
-    
     return (
         <div className="container">
             <div className="moredetails">
                 <div className="showoff">
                     <div className="images">
-                        <img src={searchData.img} alt=""></img>
+                        <img src={getSourceImgs(product.data?.img)} alt=""></img>
                     </div>
                     <div className="text">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Debitis cumque cum quo voluptatibus temporibus, magni eos dolore odio perspiciatis ipsa 
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Debitis cumque cum quo voluptatibus temporibus, magni eos dolore odio perspiciatis ipsa
                             incidunt tempore maiores aliquam accusantium nihil. Sit unde minus totam!
                         </p>
                     </div>
                 </div>
                 <div className="details">
                     <div className="options">
-                        <h1>{searchData.name}</h1>
-                        <strong>$ {searchData.price}</strong>
+                        <h1>{product.data?.name}</h1>
+                        <strong>$ {product.data?.price} </strong>
                         <div className="qoantity" >
                             <label htmlFor="" > Qantity :</label>
                             <input defaultValue='0' type="number"></input>
@@ -47,16 +55,16 @@ function ShowProduct () {
                     <div className="textdetails">
                         <span>PRODUCT INFO</span>
                         <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Iusto cum dolore similique ab placeat quas error? In repellat repudiandae blanditiis dolorum 
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Iusto cum dolore similique ab placeat quas error? In repellat repudiandae blanditiis dolorum
                             quidem explicabo, asperiores, soluta veniam numquam cumque consectetur? Culpa!
                         </p>
                     </div>
                 </div>
-            </div> 
-       </div> 
+            </div>
+        </div>
     )
-    
+
 }
 
-export default ShowProduct
+export default InfoPR;

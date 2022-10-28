@@ -1,6 +1,7 @@
 :root {
-    --main-color : black;
+    --main-color: black;
 }
+
 /* logo */
 header {
     display: flex;
@@ -8,7 +9,7 @@ header {
     align-items: center;
     margin-top: 20px;
     flex-wrap: wrap;
-    
+
 
 }
 
@@ -16,6 +17,7 @@ header .logo span {
     font-size: 25px;
     font-weight: bold;
 }
+
 header .logo p {
     font-size: 16px;
     font-weight: 500;
@@ -23,54 +25,68 @@ header .logo p {
 
 /* menu */
 @media (max-width:999px) {
-    header .menu , header .search , header .account {
+
+    header .menu,
+    header .search,
+    header .account {
         display: none;
     }
 
 }
-header .menu ul{
+
+header .menu ul {
     display: flex;
     cursor: pointer;
 
 }
-header  ul a {
+
+header ul a {
     color: black;
 }
+
 header .menu ul li {
-    margin-left:  15px;
+    margin-left: 15px;
     font-size: 17px;
     font-weight: 600;
     padding: 5px 5px;
 
-} 
+}
+
 header .menu ul li:hover {
     border: 1px solid black;
     background-color: black;
     color: white;
     border-radius: 5px;
 }
+
 /* tool */
 header .tool {
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
 }
+
 @media (max-width: 998px) {
     header .logo {
         width: 80%;
     }
 }
+
 header .tool .account {
     margin: 0px 15px;
 }
-header .tool .sale , .tool .usericon {
+
+header .tool .sale,
+.tool .usericon {
     font-size: 25px;
     cursor: pointer;
 }
+
 header .tool .sale {
     position: relative;
 }
-header .tool .sale::after{
+
+header .tool .sale::after {
     content: attr(data-count);
     color: white;
     position: absolute;
@@ -80,19 +96,24 @@ header .tool .sale::after{
     top: 0;
     left: 50%;
     transform: translateY(50%);
-    
+
 }
-header .usericon , header .loginlink {
+
+header .usericon,
+header .loginlink {
     padding: 0 10px;
     cursor: pointer
 }
+
 header .searchcontent {
     position: relative;
     width: 70%;
 }
+
 header .search form {
     width: 90%;
 }
+
 header .iconsearch {
     position: absolute;
     right: 0;
@@ -100,39 +121,47 @@ header .iconsearch {
     top: 50%;
     transform: translateY(-50%);
 }
+
 header input[type='text'] {
     border: none;
     border-bottom: 1px solid black;
     width: 100%;
     outline: none;
-    
+
 }
+
 /* menu mobile */
 
 header .menumobile .menucontent {
     display: none;
 }
+
 header .iconmenutow {
     font-size: 30px;
     margin-left: 15px;
     z-index: 10;
 }
+
 @media (min-width: 998px) {
     header .iconmenutow {
         display: none;
     }
 }
+
 header .searchmobilecontent {
     position: relative;
 }
+
 header .searchmobile {
     width: 100%;
 }
+
 @media (min-width: 998px) {
     header .searchmobile {
         display: none;
     }
 }
+
 /* open menu */
 .open {
     display: block !important;
@@ -144,9 +173,11 @@ header .searchmobile {
     height: 100%;
     z-index: 6;
 }
+
 .show {
     display: block !important;
 }
+
 .ulmobilemenu {
     height: 100%;
     display: flex;
@@ -154,17 +185,20 @@ header .searchmobile {
     justify-content: center;
     cursor: pointer;
 }
+
 .ulmobilemenu li:hover {
     background-color: black;
     color: white;
     padding: 5px 5px;
     border-radius: 10px;
 }
+
 .ulmobilemenu li {
     margin-bottom: 10px;
     font-size: 25px;
     font-weight: 600;
 }
+
 .closeicon {
     font-size: 30px;
     margin-left: 20px;
@@ -182,33 +216,39 @@ header .searchmobile {
     width: 300px;
     z-index: 20;
     display: none;
-    
+
 }
+
 .packet header {
     margin: 0;
 }
+
 .packet header .content {
     background-color: black;
     display: flex;
     height: 100px;
     width: 100%;
-    margin:0;
+    margin: 0;
     color: white;
     justify-content: space-around;
     align-items: center;
 }
+
 .packet header .content h1 {
     font-size: 25px;
     margin-right: 71px;
     font-weight: 600;
 }
+
 .packet header .content .iconAngel {
     font-size: 25px;
     cursor: pointer;
 }
+
 .openPacket {
     display: block !important;
 }
+
 .packet .cartProduct {
     display: flex;
     margin: 16px;
@@ -217,41 +257,48 @@ header .searchmobile {
     /* width: 181%; */
     align-items: center;
     position: relative;
-    
-    
+
+
 }
+
 .packet .cartProduct .text {
     display: flex;
     flex-direction: column;
 }
+
 .packet .cartProduct .img img {
     width: 35px;
 }
+
 .packet .cartProduct .img {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 17px;
-   
+
     height: 100%;
     width: 147px;
 }
+
 .packet .cartProduct h2 {
     font-size: 15px;
     margin: 0;
     color: rgb(163, 160, 160);
 }
+
 .packet .cartProduct span {
     font-weight: 600;
     font-size: 15px;
     width: 500px;
 }
+
 .packet .cartProduct input {
     width: 50px;
     outline: none;
     border: 1px solid black;
 
 }
+
 /* basket */
 .emptyBasket {
     font-size: 18px;
@@ -260,15 +307,16 @@ header .searchmobile {
     display: flex;
     justify-content: center;
     align-items: center;
-    
-} 
+
+}
+
 .emptyBasket h1 {
     font-size: 20px;
     margin: 0;
     font-weight: 600;
 }
 
-.packet .content .calcTotol  {
+.packet .content .calcTotol {
     position: absolute;
     bottom: 20px;
     display: flex;
@@ -277,8 +325,9 @@ header .searchmobile {
     width: 100%;
     background-color: white;
     z-index: 5;
-    
+
 }
+
 .packet .content .calcTotol span {
     margin-bottom: 30px;
     font-size: 20px;
@@ -287,8 +336,9 @@ header .searchmobile {
     display: block;
     padding-top: 10px;
     margin-left: 15px;
-    
+
 }
+
 .packet .content .calcTotol button {
     border: 1px solid black;
     background-color: black;
@@ -299,14 +349,16 @@ header .searchmobile {
     margin: 0 15px;
     width: 100%;
 }
+
 .packet .content .calcTotol button:hover {
     opacity: 0.5;
 }
+
 .packet .allProduct {
     height: 600px;
     overflow-y: scroll;
     overflow-x: hidden;
-    
+
 }
 
 .cartProduct .removeProduct {
@@ -324,7 +376,8 @@ header .searchmobile {
     justify-content: center;
     align-items: center;
 }
- /* Search */
+
+/* Search */
 
 .searchProduct {
     margin: 50px 20px;
@@ -339,13 +392,15 @@ header .searchmobile {
     padding: 5px;
 
 }
+
 .searchProduct .result {
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.searchProduct .result  h2 {
+
+.searchProduct .result h2 {
     font-size: 20;
 
 }

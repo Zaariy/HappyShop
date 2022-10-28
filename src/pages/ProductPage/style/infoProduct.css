@@ -3,24 +3,29 @@
     justify-content: space-evenly;
     margin-top: 50px;
 }
+
 @media (max-width: 998px) {
     .moredetails {
         flex-direction: column;
     }
+
     .moredetails .showoff .text {
         display: none;
     }
 }
+
 .moredetails .showoff img {
     width: 170px;
-    cursor:crosshair;
+    cursor: crosshair;
 }
+
 .moredetails .showoff img:hover {
     transform: scale(1.2);
     transition-duration: 0.5s;
 }
+
 .moredetails .showoff .images {
-    border : 1px solid #ebebeb;
+    border: 1px solid #ebebeb;
     height: 350px;
     max-width: 450px;
     display: flex;
@@ -32,6 +37,7 @@
 .moredetails .showoff .text {
     max-width: 450px;
 }
+
 .moredetails .showoff .text p {
     font-weight: 600;
     line-height: 1.7;
@@ -43,46 +49,52 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
 .moredetails .details strong {
     font-weight: 600;
     font-size: 18px;
     margin: 15px 0;
 }
+
 .moredetails .details input[type='number'] {
     width: 80px;
     outline: none;
     margin: 20px 0;
     padding: 5px 0;
-    
+
 }
+
 .moredetails .details label {
     width: 100%;
     font-weight: 600;
 }
+
 .moredetails .details .options .addcart {
     background-color: white;
     color: black;
     font-weight: 100;
     outline: none;
     cursor: pointer;
-    border: 1px solid ;
+    border: 1px solid;
     font-size: 14px;
     padding: 5px 0;
     margin-bottom: 10px;
-    
+
 }
+
 .moredetails .details .options {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 .moredetails .details .options .buy {
     background-color: black;
     color: white;
     font-weight: 100;
     outline: none;
     cursor: pointer;
-    border: 1px solid ;
+    border: 1px solid;
     font-size: 14px;
     padding: 8px 0;
     /* margin-bottom: 20px; */
@@ -90,11 +102,13 @@
     display: block;
     width: 100%;
 
-    
+
 }
+
 .moredetails .details .textdetails {
     margin-top: 15px;
 }
+
 .moredetails .details .textdetails span {
     font-weight: 600;
     font-size: 17px;
@@ -102,6 +116,7 @@
     display: block;
     margin-top: 30px;
 }
+
 .moredetails .details .textdetails p {
     font-weight: 600;
     font-size: 14px;

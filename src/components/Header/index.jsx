@@ -1,36 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import '../CSS/Header.css';
+import React, { useState } from 'react';
+import './style/main.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser, faCartShopping, faMagnifyingGlass, faBars, faXmark, faAngleRight } from '@fortawesome/free-solid-svg-icons'
-import { useLocation } from 'react-router';
-import SideBasket from './SideBasket';
-import Search from './Search';
-import MainPage from './Mainpage';
+import {
+    faUser,
+    faCartShopping,
+    faMagnifyingGlass,
+    faBars,
+    faXmark,
+    faAngleRight
+} from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
+import BasketPR from '../ProductsBasket/index';
+import Search from '../Search/index';
 
 
-// const testImg = require('../sources/images/product/imgFive.jpg')
 
 
 
-function HeaderPage() {
+function Header() {
 
     const [data, setdata] = useState({ statepaket: false, statemenu: false, track: 0 })
     const [searchValue, setSearchValue] = useState({ searchvalue: '' })
-    const [counterProduct, setCounterProduct] = useState([])
-    const counterItems = useLocation();
 
     function getDataFromSearchInput(value) {
 
         setSearchValue({ searchvalue: value })
     }
 
-    useEffect(() => {
-        setCounterProduct(counterItems.state ? counterItems.state : { id: 0 })
 
-        return () => {
-            setCounterProduct([])
-        }
-    }, [counterItems.state ? counterItems.state.id : ''])
 
     return (
         <div className='container'>
@@ -43,10 +40,10 @@ function HeaderPage() {
                 </div>
                 <div className='menu'>
                     <ul>
-                        <a href='/'><li>Shop</li></a>
-                        <a href='/#about'><li>About</li></a>
-                        <a href='/faq'><li>FAQ</li></a>
-                        <a href='/contact'><li>Contact</li></a>
+                        <Link to={'/'}><li>Shop</li></Link>
+                        <Link to={'/'}><li>About</li></Link>
+                        <Link to={'/faq'}><li>FAQ</li></Link>
+                        <Link to={'/contact'}><li>Contact</li></Link>
 
                     </ul>
                 </div>
@@ -62,10 +59,12 @@ function HeaderPage() {
                     <div className='account' >
                         <div className='loginlink'><FontAwesomeIcon className='usericon' icon={faUser} />log In</div>
                     </div>
-                    <div className='sale' data-count={counterProduct.number}>
+                    <div className='sale' data-count='0'>
                         <div><FontAwesomeIcon className="sale" onClick={() => setdata({ statepaket: !data.statepaket })} icon={faCartShopping} /></div>
                     </div>
+
                     <div className='menumobile'>
+                        {/* This menu For Mobile Devices */}
                         <div className='iconmenu'>
                             <FontAwesomeIcon className='iconmenutow' onClick={() => setdata({ statemenu: !data.statemenu })} icon={faBars} />
                         </div>
@@ -77,16 +76,17 @@ function HeaderPage() {
                                 <FontAwesomeIcon className='closeicon' onClick={() => setdata({ statemenu: !data.statemenu })} icon={faXmark} />
                             </div>
                             <ul className='ulmobilemenu'>
-                                <a href='/'><li>Shop</li></a>
-                                <a href='/#about'><li>About</li></a>
-                                <a href='/faq'><li>FAQ</li></a>
-                                <a href='/contact'><li>Contact</li></a>
+                                <Link to={'/'}><li>Shop</li></Link>
+                                <Link to={'/'}><li>About</li></Link>
+                                <Link to={'/faq'}><li>FAQ</li></Link>
+                                <Link to={'/contact'}><li>Contact</li></Link>
                             </ul>
                         </div>
                     </div>
 
                 </div>
                 <div className='searchmobile'>
+                    {/* This for Searching on Items  */}
                     <form onSubmit={(e) => e.preventDefault()}>
                         <div className='searchmobilecontent'>
                             <input type='text' placeholder='Search...' onChange={(e) => getDataFromSearchInput(e.target.value)} ></input>
@@ -94,7 +94,7 @@ function HeaderPage() {
                         </div>
                     </form>
                 </div>
-            </header>
+            </header >
             <div className={data.statepaket ? "packet openPacket" : "packet"}>
                 <header>
                     <div className='content'>
@@ -102,11 +102,11 @@ function HeaderPage() {
                         <h1>Cart</h1>
                     </div>
                 </header>
-                <SideBasket />
+                <BasketPR />
             </div>
-
-            {searchValue.searchvalue !== '' ? <Search ProductSearchName={searchValue.searchvalue} /> : <div></div>}
-        </div>
+            {/* This for Reasult of Search */}
+            {searchValue.searchvalue !== '' ? <Search ProductName={searchValue.searchvalue} /> : <div></div>}
+        </div >
 
 
     )
@@ -116,4 +116,4 @@ function HeaderPage() {
 
 
 
-export default HeaderPage;
+export default Header;

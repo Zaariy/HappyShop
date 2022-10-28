@@ -17,29 +17,38 @@ footer .contentFooter ul {
     margin-top: 50px;
     cursor: pointer;
 }
+
 footer .contentFooter ul li {
     margin-bottom: 10px;
-    
+
+}
+
+footer .contentFooter ul li a {
+    color: white;
 }
 
 footer .subscribe {
     margin-top: 50px;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     margin-left: 130px;
 }
+
 @media (max-width: 767px) {
     footer .contentFooter {
         flex-direction: column;
         font-size: 16px;
     }
+
     footer .subscribe {
         margin: 0;
         margin-left: 28px;
     }
+
     footer .subscribe input {
         width: 100% !important;
     }
+
     footer .subscribe button {
         margin-left: 0 !important;
         margin-top: 8px;
@@ -67,6 +76,7 @@ footer .subscribe label {
     margin: 5px 0;
     color: gray
 }
+
 footer .subscribe form button {
     background-color: white;
     color: black;

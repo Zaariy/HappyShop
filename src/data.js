@@ -6,7 +6,7 @@ const Product =
         name: "Shirt" , 
         price : "15.55" , 
         state : "Top" , 
-        img: "/imgFour.jpg" ,
+        img: "imgFour.jpg" ,
         details: {
             description: " hello"
         }
@@ -27,7 +27,7 @@ const Product =
         name: "Switcher Blue" , 
         price : "18.00" , 
         state : "Sale" , 
-        img: "/imgtow.jpg" ,
+        img: "imgtow.jpg" ,
       },
       
       
