@@ -1,32 +1,31 @@
 import "./App.css";
-import MainPage from "./components/Mainpage.jsx";
-import HeaderPage from "./components/Header.jsx";
+// import MainPage from "./components/Mainpage.jsx";
 import { BrowserRouter , Routes , Route } from "react-router-dom";
-import ShowProduct from "./components/ShowProduct";
-import Footer from "./components/Footer.jsx";
+import MainProductPage from "./pages/ProductPage";  
 import Contact from "./pages/Contact/index.jsx";
 import Faq from "./pages/FAQ/index.jsx";
-import CartPay from "./components/CartPayment";
+import Home from './pages/Shop/index'
+import CartPay from "./pages/Payment/index";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
 
     return ( 
-        <div>
             
             <BrowserRouter >
-            <HeaderPage />
+                <Header></Header>
                 <Routes >
-                    <Route path="/" element={ <MainPage />} />
-                    <Route path="/showProduct" element={<ShowProduct />} />
+                    <Route path="/" element={ <Home  />} />
+                    <Route path="/showProduct" element={<MainProductPage />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path='/faq' element={<Faq />} />
                     <Route path="/payment" element={<CartPay />} />
                 </Routes>
-            <Footer /> 
+                <Footer></Footer>
             </BrowserRouter>
             
             
-        </div>
     );
 }
 
