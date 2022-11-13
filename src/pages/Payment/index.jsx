@@ -1,28 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React  from 'react'
 import { useLocation } from 'react-router';
+import {
+    getSourceImgs,
+    calcPriceProduct
+} from '../../utils/PublicFunctionsHealper';
 import './style/main.css';
 
 function CartPay() {
-    const getdata = useLocation()
-    const [collectProduct, setcollectProduct] = useState([]);
-    const [calcPrice, setcalcPrice] = useState(0)
-    const { data } = getdata.state
-    useEffect(() => {
-        setcollectProduct(data || false)
-    }, [])
-
-
-    function calcProduct(amount, price) {
-        if (price) {
-
-            const sum = Number(amount) * Number(price)
-            if (amount === 0) {
-
-                setcalcPrice((pervent) => pervent + Number(price))
-            }
-            setcalcPrice((pervent) => pervent + sum)
-        }
-    }
+    const routeData = useLocation().state
 
     return (
         <div className='paymentPage'>
@@ -33,24 +18,20 @@ function CartPay() {
                         <div className='subtitle'>
                             <h2>My cart</h2>
                         </div>
-                        {collectProduct[0] ? collectProduct.map((data) => {
+                        { routeData.data.data.length ? routeData.data.data.map((data) => {
                             return (
                                 <div className='cart' key={data.id}>
-                                    <img src={data.img} alt='img' ></img>
+                                    <img src={getSourceImgs(data.img)} alt='img' ></img>
                                     <div className='info'>
                                         <p>{data.name}</p>
                                         <strong>$ {data.price}</strong>
                                     </div>
-                                    <input type='number' defaultValue='0' onClick={(e) => calcProduct(e.target.value, data.price)} name='number' ></input>
+                                    <input type='number' defaultValue='0'  name='number' ></input>
                                 </div>
 
                             )
-                        }) : <div></div>}
-                        {
-                            collectProduct.length === 0 ? (<div>
-                                <h3>cart is Empty</h3>
-                            </div>) : <div></div>
-                        }
+                        }) : <div><h3>cart is Empty</h3></div>}
+
                     </div>
 
                     <div className='paymentInfo'>
@@ -62,7 +43,7 @@ function CartPay() {
                             <p>MAROOC</p>
                         </div>
                         <div className='total' >
-                            <p>Total  : $  <strong >{calcPrice}</strong></p>
+                            <p>Total  : $  <strong >{calcPriceProduct(routeData.data.data) }</strong></p>
                         </div>
                         <div className='pay'>
                             <button>Checkout</button>

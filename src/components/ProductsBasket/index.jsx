@@ -16,29 +16,28 @@ import {
 
 
 function BasketPR() {
-    const [dataAddCart, setdataAddCart] = useState({ data: [] })
+    const [dataAddCart, setdataAddCart] = useState({ data: []  })
 
     let routeData = useLocation()
 
 
-    // function checkTrack() {
-    //     /*
-    //         This function it's track where from Product Come 
-    //         for exmple it's come from main Component or SideBasket Component 
-    //     */
-    //     if (idItems.state && idItems.state.track !== 'main') {
-    //         return true
-    //     }
-    //     return false
-    // }
-
+    function checkTrack() {
+        /*
+            This function it's track where from Product Come 
+            for exmple it's come from main Component or SideBasket Component 
+        */
+        if (routeData.state.track === 'btn') {
+            return true
+        }
+        return false
+    }
     function searchForItemToRemove(id, array) {
         /*
-            This function its job it just find item by id 
-            and romve it from basket sale
-            */
+        This function its job it just find item by id 
+        and romve it from basket sale
+        */
 
-        if (!checkIfItemInBasket(id, array)) {
+        if (!checkIfItemInBasket(id, array) ) {
 
             const deletResult = array.filter((item) => {
                 return id !== item.id
@@ -47,6 +46,7 @@ function BasketPR() {
                 return {
                     ...prv,
                     data: [...deletResult]
+                    
                 }
             })
         }
@@ -60,7 +60,7 @@ function BasketPR() {
             2 : if not in Basket Than it will add it in Basket Shop else it will Not add it ...
 
         */
-        if (checkIfItemInBasket(routeData.state?.id, dataAddCart.data)) {
+        if (checkIfItemInBasket(routeData.state?.id, dataAddCart.data) && checkTrack()) {
 
             setdataAddCart((prv) => {
                 return {
@@ -74,11 +74,10 @@ function BasketPR() {
     }
 
     useEffect(() => {
-
         setProctusOnCard()
-
-    }, [routeData.state?.id])
-
+        
+    }, [routeData.state?.id ])
+    
     return (
         <div className='content'>
 
@@ -107,8 +106,8 @@ function BasketPR() {
                 }
             </div>
             <div className='calcTotol'>
-                <span>Totole is : $ {calcPriceProduct(dataAddCart.data)}  </span>
-                <Link to='/payment' state={{ data: dataAddCart }} ><button>Check All</button></Link>
+                <span>Totole is : $  {calcPriceProduct(dataAddCart.data)}   </span>
+                <Link to='/payment' state={{ data: dataAddCart}} ><button>Check All</button></Link>
             </div>
 
         </div>
