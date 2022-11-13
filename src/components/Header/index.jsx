@@ -27,8 +27,6 @@ function Header() {
         setSearchValue({ searchvalue: value })
     }
 
-
-
     return (
         <div className='container'>
 

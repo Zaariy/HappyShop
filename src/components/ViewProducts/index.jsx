@@ -24,7 +24,7 @@ function ViewPT() {
                                     <Link to='/showProduct' state={{ id: data.id, track: 'main' }} ><img src={getSourceImgs(data.img)} alt="img"></img></Link>
                                     <p>{data.name}</p>
                                     <strong>{data.price}</strong>
-                                    <Link to='/' state={{ id: data.id }}><button >Add to Cart</button></Link>
+                                    <Link to='/' state={{ id: data.id  , track : 'btn'}}><button >Add to Cart</button></Link>
                                 </div>
                             )
 
